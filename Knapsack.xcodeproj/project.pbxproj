@@ -12,9 +12,34 @@
 		2018D29F19E081E300F3B522 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2018D29E19E081E300F3B522 /* GameScene.swift */; };
 		2018D2A119E081E300F3B522 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2018D2A019E081E300F3B522 /* GameViewController.swift */; };
 		2018D2A419E081E300F3B522 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2018D2A219E081E300F3B522 /* Main.storyboard */; };
-		2018D2A619E081E300F3B522 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2018D2A519E081E300F3B522 /* Images.xcassets */; };
 		2018D2A919E081E300F3B522 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2018D2A719E081E300F3B522 /* LaunchScreen.xib */; };
 		2018D2B519E081E300F3B522 /* KnapsackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2018D2B419E081E300F3B522 /* KnapsackTests.swift */; };
+		2018D2DB19E0828000F3B522 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2018D2BF19E0828000F3B522 /* LaunchScreen.xib */; };
+		2018D2DC19E0828000F3B522 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2018D2C119E0828000F3B522 /* Main.storyboard */; };
+		2018D2DD19E0828000F3B522 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2018D2C319E0828000F3B522 /* Button.swift */; };
+		2018D2DE19E0828000F3B522 /* ButtonBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2018D2C419E0828000F3B522 /* ButtonBuilder.swift */; };
+		2018D2DF19E0828000F3B522 /* ButtonContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2018D2C519E0828000F3B522 /* ButtonContainer.swift */; };
+		2018D2E019E0828000F3B522 /* ButtonContainerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2018D2C619E0828000F3B522 /* ButtonContainerState.swift */; };
+		2018D2E119E0828000F3B522 /* ButtonGuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2018D2C719E0828000F3B522 /* ButtonGuts.swift */; };
+		2018D2E219E0828000F3B522 /* ButtonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2018D2C819E0828000F3B522 /* ButtonManager.swift */; };
+		2018D2E319E0828000F3B522 /* ButtonSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2018D2C919E0828000F3B522 /* ButtonSlot.swift */; };
+		2018D2E419E0828000F3B522 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2018D2CA19E0828000F3B522 /* Contact.swift */; };
+		2018D2E519E0828000F3B522 /* ContactCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2018D2CB19E0828000F3B522 /* ContactCategory.swift */; };
+		2018D2E619E0828000F3B522 /* ContactRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2018D2CC19E0828000F3B522 /* ContactRecord.swift */; };
+		2018D2E719E0828000F3B522 /* ContainerButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2018D2CD19E0828000F3B522 /* ContainerButtonNode.swift */; };
+		2018D2E819E0828000F3B522 /* DefaultButtonContainerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2018D2CE19E0828000F3B522 /* DefaultButtonContainerState.swift */; };
+		2018D2EA19E0828000F3B522 /* JumpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2018D2D019E0828000F3B522 /* JumpButton.swift */; };
+		2018D2EB19E0828000F3B522 /* LeftButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2018D2D119E0828000F3B522 /* LeftButton.swift */; };
+		2018D2EC19E0828000F3B522 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2018D2D219E0828000F3B522 /* Level.swift */; };
+		2018D2ED19E0828000F3B522 /* Level1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2018D2D319E0828000F3B522 /* Level1.swift */; };
+		2018D2EE19E0828000F3B522 /* MainCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2018D2D419E0828000F3B522 /* MainCharacter.swift */; };
+		2018D2EF19E0828000F3B522 /* MainCharacterNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2018D2D519E0828000F3B522 /* MainCharacterNode.swift */; };
+		2018D2F019E0828000F3B522 /* RightButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2018D2D619E0828000F3B522 /* RightButton.swift */; };
+		2018D2F119E0828000F3B522 /* ThrowButtonContainerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2018D2D719E0828000F3B522 /* ThrowButtonContainerState.swift */; };
+		2018D2F219E0828000F3B522 /* Thrower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2018D2D819E0828000F3B522 /* Thrower.swift */; };
+		2018D2F319E0828000F3B522 /* ViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2018D2D919E0828000F3B522 /* ViewManager.swift */; };
+		2018D2F419E0828000F3B522 /* WorldButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2018D2DA19E0828000F3B522 /* WorldButtonNode.swift */; };
+		2018D2F619E0836900F3B522 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2018D2F519E0836900F3B522 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,11 +60,36 @@
 		2018D29E19E081E300F3B522 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		2018D2A019E081E300F3B522 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		2018D2A319E081E300F3B522 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		2018D2A519E081E300F3B522 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2018D2A819E081E300F3B522 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		2018D2AE19E081E300F3B522 /* KnapsackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KnapsackTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2018D2B319E081E300F3B522 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2018D2B419E081E300F3B522 /* KnapsackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnapsackTests.swift; sourceTree = "<group>"; };
+		2018D2C019E0828000F3B522 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		2018D2C219E0828000F3B522 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
+		2018D2C319E0828000F3B522 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		2018D2C419E0828000F3B522 /* ButtonBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonBuilder.swift; sourceTree = "<group>"; };
+		2018D2C519E0828000F3B522 /* ButtonContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonContainer.swift; sourceTree = "<group>"; };
+		2018D2C619E0828000F3B522 /* ButtonContainerState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonContainerState.swift; sourceTree = "<group>"; };
+		2018D2C719E0828000F3B522 /* ButtonGuts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonGuts.swift; sourceTree = "<group>"; };
+		2018D2C819E0828000F3B522 /* ButtonManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonManager.swift; sourceTree = "<group>"; };
+		2018D2C919E0828000F3B522 /* ButtonSlot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonSlot.swift; sourceTree = "<group>"; };
+		2018D2CA19E0828000F3B522 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		2018D2CB19E0828000F3B522 /* ContactCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCategory.swift; sourceTree = "<group>"; };
+		2018D2CC19E0828000F3B522 /* ContactRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactRecord.swift; sourceTree = "<group>"; };
+		2018D2CD19E0828000F3B522 /* ContainerButtonNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerButtonNode.swift; sourceTree = "<group>"; };
+		2018D2CE19E0828000F3B522 /* DefaultButtonContainerState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultButtonContainerState.swift; sourceTree = "<group>"; };
+		2018D2D019E0828000F3B522 /* JumpButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JumpButton.swift; sourceTree = "<group>"; };
+		2018D2D119E0828000F3B522 /* LeftButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftButton.swift; sourceTree = "<group>"; };
+		2018D2D219E0828000F3B522 /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
+		2018D2D319E0828000F3B522 /* Level1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level1.swift; sourceTree = "<group>"; };
+		2018D2D419E0828000F3B522 /* MainCharacter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCharacter.swift; sourceTree = "<group>"; };
+		2018D2D519E0828000F3B522 /* MainCharacterNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCharacterNode.swift; sourceTree = "<group>"; };
+		2018D2D619E0828000F3B522 /* RightButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightButton.swift; sourceTree = "<group>"; };
+		2018D2D719E0828000F3B522 /* ThrowButtonContainerState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThrowButtonContainerState.swift; sourceTree = "<group>"; };
+		2018D2D819E0828000F3B522 /* Thrower.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thrower.swift; sourceTree = "<group>"; };
+		2018D2D919E0828000F3B522 /* ViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewManager.swift; sourceTree = "<group>"; };
+		2018D2DA19E0828000F3B522 /* WorldButtonNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorldButtonNode.swift; sourceTree = "<group>"; };
+		2018D2F519E0836900F3B522 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,12 +131,36 @@
 		2018D29719E081E300F3B522 /* Knapsack */ = {
 			isa = PBXGroup;
 			children = (
+				2018D2F519E0836900F3B522 /* Images.xcassets */,
 				2018D29A19E081E300F3B522 /* AppDelegate.swift */,
 				2018D29C19E081E300F3B522 /* GameScene.sks */,
 				2018D29E19E081E300F3B522 /* GameScene.swift */,
+				2018D2BE19E0828000F3B522 /* Base.lproj */,
+				2018D2C319E0828000F3B522 /* Button.swift */,
+				2018D2C419E0828000F3B522 /* ButtonBuilder.swift */,
+				2018D2C519E0828000F3B522 /* ButtonContainer.swift */,
+				2018D2C619E0828000F3B522 /* ButtonContainerState.swift */,
+				2018D2C719E0828000F3B522 /* ButtonGuts.swift */,
+				2018D2C819E0828000F3B522 /* ButtonManager.swift */,
+				2018D2C919E0828000F3B522 /* ButtonSlot.swift */,
+				2018D2CA19E0828000F3B522 /* Contact.swift */,
+				2018D2CB19E0828000F3B522 /* ContactCategory.swift */,
+				2018D2CC19E0828000F3B522 /* ContactRecord.swift */,
+				2018D2CD19E0828000F3B522 /* ContainerButtonNode.swift */,
+				2018D2CE19E0828000F3B522 /* DefaultButtonContainerState.swift */,
+				2018D2D019E0828000F3B522 /* JumpButton.swift */,
+				2018D2D119E0828000F3B522 /* LeftButton.swift */,
+				2018D2D219E0828000F3B522 /* Level.swift */,
+				2018D2D319E0828000F3B522 /* Level1.swift */,
+				2018D2D419E0828000F3B522 /* MainCharacter.swift */,
+				2018D2D519E0828000F3B522 /* MainCharacterNode.swift */,
+				2018D2D619E0828000F3B522 /* RightButton.swift */,
+				2018D2D719E0828000F3B522 /* ThrowButtonContainerState.swift */,
+				2018D2D819E0828000F3B522 /* Thrower.swift */,
+				2018D2D919E0828000F3B522 /* ViewManager.swift */,
+				2018D2DA19E0828000F3B522 /* WorldButtonNode.swift */,
 				2018D2A019E081E300F3B522 /* GameViewController.swift */,
 				2018D2A219E081E300F3B522 /* Main.storyboard */,
-				2018D2A519E081E300F3B522 /* Images.xcassets */,
 				2018D2A719E081E300F3B522 /* LaunchScreen.xib */,
 				2018D29819E081E300F3B522 /* Supporting Files */,
 			);
@@ -116,6 +190,15 @@
 				2018D2B319E081E300F3B522 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2018D2BE19E0828000F3B522 /* Base.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				2018D2BF19E0828000F3B522 /* LaunchScreen.xib */,
+				2018D2C119E0828000F3B522 /* Main.storyboard */,
+			);
+			path = Base.lproj;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,8 +281,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2018D2DB19E0828000F3B522 /* LaunchScreen.xib in Resources */,
 				2018D2A919E081E300F3B522 /* LaunchScreen.xib in Resources */,
-				2018D2A619E081E300F3B522 /* Images.xcassets in Resources */,
+				2018D2F619E0836900F3B522 /* Images.xcassets in Resources */,
+				2018D2DC19E0828000F3B522 /* Main.storyboard in Resources */,
 				2018D29D19E081E300F3B522 /* GameScene.sks in Resources */,
 				2018D2A419E081E300F3B522 /* Main.storyboard in Resources */,
 			);
@@ -220,8 +305,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				2018D29F19E081E300F3B522 /* GameScene.swift in Sources */,
+				2018D2E619E0828000F3B522 /* ContactRecord.swift in Sources */,
+				2018D2E819E0828000F3B522 /* DefaultButtonContainerState.swift in Sources */,
+				2018D2EF19E0828000F3B522 /* MainCharacterNode.swift in Sources */,
+				2018D2EA19E0828000F3B522 /* JumpButton.swift in Sources */,
 				2018D2A119E081E300F3B522 /* GameViewController.swift in Sources */,
+				2018D2F419E0828000F3B522 /* WorldButtonNode.swift in Sources */,
+				2018D2E119E0828000F3B522 /* ButtonGuts.swift in Sources */,
+				2018D2F119E0828000F3B522 /* ThrowButtonContainerState.swift in Sources */,
+				2018D2DE19E0828000F3B522 /* ButtonBuilder.swift in Sources */,
+				2018D2E719E0828000F3B522 /* ContainerButtonNode.swift in Sources */,
+				2018D2EB19E0828000F3B522 /* LeftButton.swift in Sources */,
 				2018D29B19E081E300F3B522 /* AppDelegate.swift in Sources */,
+				2018D2E319E0828000F3B522 /* ButtonSlot.swift in Sources */,
+				2018D2F019E0828000F3B522 /* RightButton.swift in Sources */,
+				2018D2E419E0828000F3B522 /* Contact.swift in Sources */,
+				2018D2EE19E0828000F3B522 /* MainCharacter.swift in Sources */,
+				2018D2EC19E0828000F3B522 /* Level.swift in Sources */,
+				2018D2DD19E0828000F3B522 /* Button.swift in Sources */,
+				2018D2DF19E0828000F3B522 /* ButtonContainer.swift in Sources */,
+				2018D2F219E0828000F3B522 /* Thrower.swift in Sources */,
+				2018D2E019E0828000F3B522 /* ButtonContainerState.swift in Sources */,
+				2018D2E519E0828000F3B522 /* ContactCategory.swift in Sources */,
+				2018D2F319E0828000F3B522 /* ViewManager.swift in Sources */,
+				2018D2E219E0828000F3B522 /* ButtonManager.swift in Sources */,
+				2018D2ED19E0828000F3B522 /* Level1.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +366,22 @@
 				2018D2A819E081E300F3B522 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		2018D2BF19E0828000F3B522 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2018D2C019E0828000F3B522 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		2018D2C119E0828000F3B522 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2018D2C219E0828000F3B522 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

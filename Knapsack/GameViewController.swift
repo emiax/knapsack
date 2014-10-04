@@ -1,8 +1,8 @@
 //
 //  GameViewController.swift
-//  Knapsack
+//  Game1
 //
-//  Created by Emil Axelsson on 04/10/14.
+//  Created by Emil Axelsson on 10/09/14.
 //  Copyright (c) 2014 Emil Axelsson. All rights reserved.
 //
 
@@ -33,11 +33,13 @@ class GameViewController: UIViewController {
         if let scene = GameScene.unarchiveFromFile("GameScene") as? GameScene {
             // Configure the view.
             let skView = self.view as SKView
-            skView.showsFPS = true
-            skView.showsNodeCount = true
+            skView.showsFPS = false
+            skView.showsNodeCount = false
             
             /* Sprite Kit applies additional optimizations to improve rendering performance */
             skView.ignoresSiblingOrder = true
+            scene.size = skView.bounds.size
+            
             
             /* Set the scale mode to scale to fit the window */
             scene.scaleMode = .AspectFill
@@ -45,17 +47,32 @@ class GameViewController: UIViewController {
             skView.presentScene(scene)
         }
     }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        if let scene = GameScene.unarchiveFromFile("GameScene") as? GameScene {
+            let skView = self.view as SKView
+            scene.size = skView.bounds.size
+
+            skView.presentScene(scene);
+            println(scene.size.width)
+            println(scene.size.height)
+        }
+        
+    }
 
     override func shouldAutorotate() -> Bool {
         return true
     }
 
     override func supportedInterfaceOrientations() -> Int {
-        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
+        return Int(UIInterfaceOrientationMask.LandscapeLeft.toRaw())
+/*        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
             return Int(UIInterfaceOrientationMask.AllButUpsideDown.toRaw())
         } else {
             return Int(UIInterfaceOrientationMask.All.toRaw())
-        }
+        }*/
     }
 
     override func didReceiveMemoryWarning() {
