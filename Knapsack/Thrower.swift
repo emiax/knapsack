@@ -9,9 +9,9 @@
 import SpriteKit
 
 protocol Thrower {
-    func enterThrowMode() -> Bool
+    func enterThrowMode(touch: UITouch) -> Bool
     func leaveThrowMode() -> Bool
     func throwButton() -> Bool
-    func setThrowOffset(offset: CGVector)
+    func updateThrowMode()
     func hasEnoughOffset() -> Bool
 }

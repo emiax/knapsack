@@ -106,11 +106,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if (contact.bodyA.categoryBitMask == ContactCategory.MainCharacter.toRaw()) {
             if let b = contact.bodyB.node as? WorldButtonNode {
+                println("relevant collision")
                 tryPickUp(b);
             }
         }
         if (contact.bodyB.categoryBitMask == ContactCategory.MainCharacter.toRaw()) {
             if let b = contact.bodyA.node as? WorldButtonNode {
+                println("relevant collision")
                 tryPickUp(b);
             }
         }

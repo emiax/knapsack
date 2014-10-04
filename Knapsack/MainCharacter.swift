@@ -13,7 +13,7 @@ class MainCharacter {
     private var contacts: [Contact] = []
     
     required init () {
-        
+        offsetFollowingNode = CGVector(dx: 0, dy: 0)
     }
     
     let nPerimeterNodes = 12
@@ -26,18 +26,24 @@ class MainCharacter {
     
     private var attachedNodes = false;
     private var centerNode:SKNode?
+    private var followingNode:SKNode?
     private var perimeterNodes:[SKNode] = []
     
     private var visibleNode:MainCharacterNode?
     private var parent:SKNode?
-    
+    private var offsetFollowingNode:CGVector
     private var touch : UITouch?
+    
     
     func angleOfNode(i:Int) -> CGFloat {
         return CGFloat(i)/CGFloat(nPerimeterNodes) * 2.0 * PI;
     }
     
     func getFollowingNode() -> SKNode? {
+        return followingNode
+    }
+    
+    func getCenterNode() -> SKNode? {
         return centerNode
     }
     
@@ -45,9 +51,18 @@ class MainCharacter {
         return centerNode?.position
     }
     
+    func setElastic(elasticOffset: CGVector?) {
+        if let eo = elasticOffset {
+            offsetFollowingNode = CGVector(dx: eo.dx/3, dy: eo.dy/3 + 50)
+        } else {
+            offsetFollowingNode = CGVector(dx: 0, dy: 0)
+        }
+    }
+    
     func attachNodes(parent: SKNode, physicsWorld: SKPhysicsWorld, thrower: Thrower) {
         if attachedNodes { return }
         
+        let fn = SKNode();
         
         self.parent = parent
         let cn = SKShapeNode(circleOfRadius: nodeRadius)
@@ -145,7 +160,18 @@ class MainCharacter {
         parent.addChild(vn)
 
         centerNode = cn
+        followingNode = fn
         attachedNodes = true
+    }
+    
+    func updateFollowingNode () {
+        if let cn = centerNode {
+            if let fn = followingNode {
+                fn.position = cn.position
+                fn.position.x += offsetFollowingNode.dx
+                fn.position.y += offsetFollowingNode.dy
+            }
+        }
     }
     
     func updateVisibleNode() {
@@ -210,7 +236,7 @@ class MainCharacter {
         if let p = getPosition() {
             buttonNode.removeFromParent()
             parent?.addChild(buttonNode)
-            buttonNode.position = CGPoint(x: p.x - elasticOffset.dx, y: p.y - elasticOffset.dy)
+            buttonNode.position = CGPoint(x: p.x + elasticOffset.dx, y: p.y + elasticOffset.dy)
 //            buttonNode.physicsBody?.velocity = velocity
             return true
         }
@@ -234,6 +260,7 @@ class MainCharacter {
     }
 
     func update() {
+        updateFollowingNode()
         updateVisibleNode()
     }
 

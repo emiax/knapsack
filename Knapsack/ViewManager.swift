@@ -31,8 +31,8 @@ class ViewManager {
         if let f = followee {
             var oldPos = world.position;
             var targetPos = CGPoint(x: -f.position.x + size.width/2, y: -f.position.y + size.height/2)
-            world.position.x = oldPos.x*0.9 + targetPos.x*0.1
-            world.position.y = oldPos.y*0.9 + targetPos.y*0.1
+            world.position.x = oldPos.x*0.8 + targetPos.x*0.2
+            world.position.y = oldPos.y*0.8 + targetPos.y*0.2
         }
     }
     

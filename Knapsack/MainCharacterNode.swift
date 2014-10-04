@@ -15,20 +15,24 @@ class MainCharacterNode : SKNode {
     
     private var shapeNode: SKNode?
     
+    private var hitCircle: SKNode
+    
     private var touch : UITouch?
     
     private var thrower : Thrower
     
     init(thrower: Thrower) {
         self.thrower = thrower
+        let hc = SKShapeNode(circleOfRadius: 50)
+        hitCircle = hc
+
         super.init()
         self.userInteractionEnabled = true
         self.zPosition = 1
         
-//        let rect = SKShapeNode(rectOfSize: CGSize(width: 100, height: 100));
 //       rect.fillColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
 //       rect.userInteractionEnabled = true
-//        addChild(rect)
+        addChild(hc)
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -38,11 +42,9 @@ class MainCharacterNode : SKNode {
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         for touchObject : AnyObject in touches {
             if let t = touchObject as? UITouch {
-                if let sn = shapeNode {
-                    if sn.containsPoint(t.locationInNode(shapeNode)) {
-                        self.touch = t
-                        thrower.enterThrowMode()
-                    }
+                if hitCircle.containsPoint(t.locationInNode(hitCircle)) {
+                    self.touch = t
+                    thrower.enterThrowMode(t)
                 }
             }
         }
@@ -52,10 +54,7 @@ class MainCharacterNode : SKNode {
         for touchObject : AnyObject in touches {
             if let t = touchObject as? UITouch {
                 if t === self.touch {
-                    var touchOffset = t.locationInNode(self)
-                    var nodeOffset = self.position
-                    
-                    thrower.setThrowOffset(CGVector(dx: touchOffset.x, dy: touchOffset.y))
+                    thrower.updateThrowMode()
                 }
             }
         }
@@ -68,7 +67,6 @@ class MainCharacterNode : SKNode {
                 if t === self.touch {
                     throwOrLeave(t)
                     self.touch = nil
-
                 }
             }
         }

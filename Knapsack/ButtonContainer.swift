@@ -37,6 +37,9 @@ class ButtonContainer: SKNode, Thrower {
     var slotHeight: CGFloat = 64
     
     var nextThrowSlot: ButtonSlot?
+    var throwSlot: ThrowSlot?
+    
+    private var throwTouch: UITouch?
     
     private var mainCharacter: MainCharacter
     
@@ -345,12 +348,14 @@ class ButtonContainer: SKNode, Thrower {
             if let bl = bottomLeftSlot {
                 if bl.isEmpty() {
                     bl.setButton(buttonContainerNode)
+                    selectThrowSlot(bl)
                     return true
                 }
             }
             if let br = bottomRightSlot {
                 if br.isEmpty() {
                     br.setButton(buttonContainerNode)
+                    selectThrowSlot(br)
                     return true
                 }
             }
@@ -371,6 +376,7 @@ class ButtonContainer: SKNode, Thrower {
                 
                 if let s = bs {
                     s.setButton(buttonContainerNode);
+                    selectThrowSlot(s)
                     return true;
                 }
             }
@@ -397,30 +403,64 @@ class ButtonContainer: SKNode, Thrower {
         state.drag(bs, touchEvent: touchEvent, position: touchEvent.locationInNode(self))
     }
     
-    func enterThrowMode() -> Bool {
+    func enterThrowMode(touch: UITouch) -> Bool {
         setState(ThrowButtonContainerState(container: self))
+        if let ts = throwSlot {
+            ts.removeFromParent()
+        }
+        let ts = ThrowSlot()
+        addChild(ts)
+        
+        throwSlot = ts
+        throwTouch = touch
+        updateThrowMode()
+        
+        if let nts = nextThrowSlot {
+            nts.setContentsHidden(true)
+        }
+        
         return true
     }
     
     func leaveThrowMode() -> Bool {
         setState(DefaultButtonContainerState())
+        if let ts = throwSlot {
+            ts.removeFromParent()
+        }
+        throwSlot = nil
+        mainCharacter.setElastic(nil)
+        
+        forEachButtonSlot { (slot) -> () in
+            slot.setContentsHidden(false)
+        }
+        
         return true
     }
     
     func throwButton() -> Bool {
         if let b = getThrowSlotButton() {
             if let wn = b.getWorldNode() {
-                mainCharacter.throwButton(wn, elasticOffset: CGVector(dx: 0, dy: 0))
-                removeButton(b)
-                return true
+                if let tt = throwTouch {
+                    let pos = tt.locationInNode(mainCharacter.getCenterNode())
+                    mainCharacter.throwButton(wn, elasticOffset: CGVector(dx: pos.x, dy: pos.y))
+                    removeButton(b)
+                    return true
+                }
             }
         }
         return false
     }
     
-    func setThrowOffset(offset: CGVector) {
-        
-        
+    func updateThrowMode() {
+        if let ts = throwSlot {
+            if let tt = throwTouch {
+                
+                ts.position = tt.locationInNode(self)
+                
+                let pos = tt.locationInNode(mainCharacter.getCenterNode())
+                mainCharacter.setElastic(CGVector(dx: pos.x, dy: pos.y))
+            }
+        }
     }
     
     func hasEnoughOffset() -> Bool {

@@ -17,8 +17,6 @@ class ButtonBuilder {
         containerNode.setContents(guts.getContainerNodeContents());
         worldNode.setContents(guts.getWorldNodeContents());
         
-        
-        
         var button = Button(guts: guts, worldNode: worldNode, containerNode: containerNode)
         return button
     }    

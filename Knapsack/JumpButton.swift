@@ -23,7 +23,6 @@ class JumpButton : ButtonGuts {
     }
     
     func onReleased() {
-//        println("RELEASED JUMP");
     }
     
     func onPressedTick(currentTime: CFTimeInterval) {

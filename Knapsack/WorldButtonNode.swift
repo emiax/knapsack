@@ -10,9 +10,11 @@ import SpriteKit
 
 class WorldButtonNode : SKNode {
     
-    var button : Button?;
+    var button : Button?
+    private var collidable: Bool
     
     override init () {
+        collidable = true
         super.init()
     }
     
@@ -21,7 +23,13 @@ class WorldButtonNode : SKNode {
     }
     
     func setCollidable(enabled: Bool) {
-        if (enabled) {
+        self.collidable = enabled
+        updateCollidable()
+    }
+    
+
+    func updateCollidable() {
+        if (collidable) {
             physicsBody?.contactTestBitMask = ContactCategory.World.toRaw() | ContactCategory.World.toRaw() | ContactCategory.MainCharacter.toRaw()
         } else {
             physicsBody?.contactTestBitMask = ContactCategory.None.toRaw();
@@ -41,6 +49,7 @@ class WorldButtonNode : SKNode {
         p.friction = 0
         
         physicsBody = p
+        updateCollidable()
     }
     
     func getSize() -> CGSize {

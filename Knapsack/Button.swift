@@ -33,13 +33,11 @@ class Button {
     }
     
     func onPressed() {
-        println("on pressed!")
         guts.onPressed();
         down = true
     }
     
     func onReleased() {
-        println("on released!")
         guts.onReleased();
         down = false
     }

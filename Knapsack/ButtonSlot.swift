@@ -14,6 +14,7 @@ class ButtonSlot : SKShapeNode {
     private var button : ContainerButtonNode?
     
     private var throwSelected = false
+    private var contentsHidden = false
     
     override init() {
         super.init()
@@ -39,7 +40,6 @@ class ButtonSlot : SKShapeNode {
     }
     
     func clear() {
-        println("clearing button!")
         button?.removeFromParent()
         button = nil
         removeAllChildren()
@@ -60,6 +60,11 @@ class ButtonSlot : SKShapeNode {
         updateStyle()
     }
     
+    func setContentsHidden(hidden: Bool) {
+        contentsHidden = hidden
+        updateStyle()
+    }
+    
     func updateStyle() {
         if (throwSelected) {
             self.fillColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.6)
@@ -67,8 +72,9 @@ class ButtonSlot : SKShapeNode {
         } else {
             self.fillColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.2)
             self.strokeColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0)
-            
         }
+        
+        button?.hidden = contentsHidden
     }
     
 }

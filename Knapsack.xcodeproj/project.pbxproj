@@ -21,7 +21,6 @@
 		2018D2DF19E0828000F3B522 /* ButtonContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2018D2C519E0828000F3B522 /* ButtonContainer.swift */; };
 		2018D2E019E0828000F3B522 /* ButtonContainerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2018D2C619E0828000F3B522 /* ButtonContainerState.swift */; };
 		2018D2E119E0828000F3B522 /* ButtonGuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2018D2C719E0828000F3B522 /* ButtonGuts.swift */; };
-		2018D2E219E0828000F3B522 /* ButtonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2018D2C819E0828000F3B522 /* ButtonManager.swift */; };
 		2018D2E319E0828000F3B522 /* ButtonSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2018D2C919E0828000F3B522 /* ButtonSlot.swift */; };
 		2018D2E419E0828000F3B522 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2018D2CA19E0828000F3B522 /* Contact.swift */; };
 		2018D2E519E0828000F3B522 /* ContactCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2018D2CB19E0828000F3B522 /* ContactCategory.swift */; };
@@ -40,6 +39,7 @@
 		2018D2F319E0828000F3B522 /* ViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2018D2D919E0828000F3B522 /* ViewManager.swift */; };
 		2018D2F419E0828000F3B522 /* WorldButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2018D2DA19E0828000F3B522 /* WorldButtonNode.swift */; };
 		2018D2F619E0836900F3B522 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2018D2F519E0836900F3B522 /* Images.xcassets */; };
+		2018D2FB19E08E0F00F3B522 /* ThrowSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2018D2FA19E08E0F00F3B522 /* ThrowSlot.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,7 +71,6 @@
 		2018D2C519E0828000F3B522 /* ButtonContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonContainer.swift; sourceTree = "<group>"; };
 		2018D2C619E0828000F3B522 /* ButtonContainerState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonContainerState.swift; sourceTree = "<group>"; };
 		2018D2C719E0828000F3B522 /* ButtonGuts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonGuts.swift; sourceTree = "<group>"; };
-		2018D2C819E0828000F3B522 /* ButtonManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonManager.swift; sourceTree = "<group>"; };
 		2018D2C919E0828000F3B522 /* ButtonSlot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonSlot.swift; sourceTree = "<group>"; };
 		2018D2CA19E0828000F3B522 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		2018D2CB19E0828000F3B522 /* ContactCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCategory.swift; sourceTree = "<group>"; };
@@ -90,6 +89,7 @@
 		2018D2D919E0828000F3B522 /* ViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewManager.swift; sourceTree = "<group>"; };
 		2018D2DA19E0828000F3B522 /* WorldButtonNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorldButtonNode.swift; sourceTree = "<group>"; };
 		2018D2F519E0836900F3B522 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Images.xcassets; sourceTree = "<group>"; };
+		2018D2FA19E08E0F00F3B522 /* ThrowSlot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThrowSlot.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,29 +136,15 @@
 				2018D29C19E081E300F3B522 /* GameScene.sks */,
 				2018D29E19E081E300F3B522 /* GameScene.swift */,
 				2018D2BE19E0828000F3B522 /* Base.lproj */,
-				2018D2C319E0828000F3B522 /* Button.swift */,
-				2018D2C419E0828000F3B522 /* ButtonBuilder.swift */,
-				2018D2C519E0828000F3B522 /* ButtonContainer.swift */,
-				2018D2C619E0828000F3B522 /* ButtonContainerState.swift */,
-				2018D2C719E0828000F3B522 /* ButtonGuts.swift */,
-				2018D2C819E0828000F3B522 /* ButtonManager.swift */,
-				2018D2C919E0828000F3B522 /* ButtonSlot.swift */,
+				2018D2F819E0879C00F3B522 /* Buttons */,
 				2018D2CA19E0828000F3B522 /* Contact.swift */,
 				2018D2CB19E0828000F3B522 /* ContactCategory.swift */,
 				2018D2CC19E0828000F3B522 /* ContactRecord.swift */,
-				2018D2CD19E0828000F3B522 /* ContainerButtonNode.swift */,
-				2018D2CE19E0828000F3B522 /* DefaultButtonContainerState.swift */,
-				2018D2D019E0828000F3B522 /* JumpButton.swift */,
-				2018D2D119E0828000F3B522 /* LeftButton.swift */,
 				2018D2D219E0828000F3B522 /* Level.swift */,
 				2018D2D319E0828000F3B522 /* Level1.swift */,
 				2018D2D419E0828000F3B522 /* MainCharacter.swift */,
 				2018D2D519E0828000F3B522 /* MainCharacterNode.swift */,
-				2018D2D619E0828000F3B522 /* RightButton.swift */,
-				2018D2D719E0828000F3B522 /* ThrowButtonContainerState.swift */,
-				2018D2D819E0828000F3B522 /* Thrower.swift */,
 				2018D2D919E0828000F3B522 /* ViewManager.swift */,
-				2018D2DA19E0828000F3B522 /* WorldButtonNode.swift */,
 				2018D2A019E081E300F3B522 /* GameViewController.swift */,
 				2018D2A219E081E300F3B522 /* Main.storyboard */,
 				2018D2A719E081E300F3B522 /* LaunchScreen.xib */,
@@ -199,6 +185,44 @@
 				2018D2C119E0828000F3B522 /* Main.storyboard */,
 			);
 			path = Base.lproj;
+			sourceTree = "<group>";
+		};
+		2018D2F719E0876B00F3B522 /* ButtonContainerStates */ = {
+			isa = PBXGroup;
+			children = (
+				2018D2CE19E0828000F3B522 /* DefaultButtonContainerState.swift */,
+				2018D2C619E0828000F3B522 /* ButtonContainerState.swift */,
+				2018D2D719E0828000F3B522 /* ThrowButtonContainerState.swift */,
+			);
+			name = ButtonContainerStates;
+			sourceTree = "<group>";
+		};
+		2018D2F819E0879C00F3B522 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				2018D2DA19E0828000F3B522 /* WorldButtonNode.swift */,
+				2018D2CD19E0828000F3B522 /* ContainerButtonNode.swift */,
+				2018D2F919E087B800F3B522 /* Guts */,
+				2018D2F719E0876B00F3B522 /* ButtonContainerStates */,
+				2018D2C319E0828000F3B522 /* Button.swift */,
+				2018D2C919E0828000F3B522 /* ButtonSlot.swift */,
+				2018D2FA19E08E0F00F3B522 /* ThrowSlot.swift */,
+				2018D2C419E0828000F3B522 /* ButtonBuilder.swift */,
+				2018D2C519E0828000F3B522 /* ButtonContainer.swift */,
+				2018D2D819E0828000F3B522 /* Thrower.swift */,
+			);
+			name = Buttons;
+			sourceTree = "<group>";
+		};
+		2018D2F919E087B800F3B522 /* Guts */ = {
+			isa = PBXGroup;
+			children = (
+				2018D2C719E0828000F3B522 /* ButtonGuts.swift */,
+				2018D2D119E0828000F3B522 /* LeftButton.swift */,
+				2018D2D619E0828000F3B522 /* RightButton.swift */,
+				2018D2D019E0828000F3B522 /* JumpButton.swift */,
+			);
+			name = Guts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,6 +332,7 @@
 				2018D2E619E0828000F3B522 /* ContactRecord.swift in Sources */,
 				2018D2E819E0828000F3B522 /* DefaultButtonContainerState.swift in Sources */,
 				2018D2EF19E0828000F3B522 /* MainCharacterNode.swift in Sources */,
+				2018D2FB19E08E0F00F3B522 /* ThrowSlot.swift in Sources */,
 				2018D2EA19E0828000F3B522 /* JumpButton.swift in Sources */,
 				2018D2A119E081E300F3B522 /* GameViewController.swift in Sources */,
 				2018D2F419E0828000F3B522 /* WorldButtonNode.swift in Sources */,
@@ -328,7 +353,6 @@
 				2018D2E019E0828000F3B522 /* ButtonContainerState.swift in Sources */,
 				2018D2E519E0828000F3B522 /* ContactCategory.swift in Sources */,
 				2018D2F319E0828000F3B522 /* ViewManager.swift in Sources */,
-				2018D2E219E0828000F3B522 /* ButtonManager.swift in Sources */,
 				2018D2ED19E0828000F3B522 /* Level1.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

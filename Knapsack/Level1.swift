@@ -27,17 +27,6 @@ class Level1 : Level{
     
     override func createWorld() -> SKNode {
         var world = SKNode()
-/*
-        for (var i = 0; i < 10; i++) {
-            var xPos : Int = (-100 + i*48);
-            world.addChild(createWallElement(xPos, -100))
-        }
-        
-        for (var i = 0; i < 10; i++) {
-            var yPos : Int = (-100 + i*48);
-            world.addChild(createWallElement(300, yPos))
-        }
-*/
         
         let points = [
             CGPoint(x: 1000, y: -100),

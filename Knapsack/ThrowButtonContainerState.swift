@@ -22,7 +22,6 @@ class ThrowButtonContainerState : ButtonContainerState {
      * Called when touch starts on button
      */
     func press(slot: ButtonSlot?, touchEvent: UITouch, position: CGPoint) {
-        println("PRESS")
         if let s = slot {
             if (!s.isEmpty()) {
                 container.selectThrowSlot(s)

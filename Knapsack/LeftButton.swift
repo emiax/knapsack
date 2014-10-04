@@ -19,25 +19,18 @@ class LeftButton : ButtonGuts {
     }
     
     func onPressed() {
-//        println("PRESSED LEFT");
+
     }
     
     func onReleased() {
-//        println("RELEASED LEFT");
+
     }
     
     func onPressedTick(currentTime: CFTimeInterval) {
-/*        if let v = mainCharacter.physicsBody?.velocity {
-            let coeff = -2 - v.dx;
-            if (coeff < 0) {
-                mainCharacter.physicsBody?.applyForce(CGVector(coeff * 5, 0))
-            }
-        }*/
         mainCharacter.walkLeft()
-//            physicsBody?.velocity.dx = -100
-//        println("walk left")
     }
-    
+
+
     func onReleasedTick(currentTime: CFTimeInterval) {
         // do nothing
     }
