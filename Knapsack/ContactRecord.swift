@@ -9,6 +9,6 @@
 import SpriteKit
 
 protocol ContactRecord {
-    func addContact(contact: Contact)
-    func removeContact(contact: Contact)
+    func addContact(contact: SKPhysicsContact)
+    func removeContact(contact: SKPhysicsContact)
 }

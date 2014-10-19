@@ -40,6 +40,11 @@
 		2018D2F419E0828000F3B522 /* WorldButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2018D2DA19E0828000F3B522 /* WorldButtonNode.swift */; };
 		2018D2F619E0836900F3B522 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2018D2F519E0836900F3B522 /* Images.xcassets */; };
 		2018D2FB19E08E0F00F3B522 /* ThrowSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2018D2FA19E08E0F00F3B522 /* ThrowSlot.swift */; };
+		201C3BEA19F31AE400945234 /* ZLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201C3BE919F31AE400945234 /* ZLayer.swift */; };
+		204D955519F2D5A20014FA3F /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D955419F2D5A20014FA3F /* Goal.swift */; };
+		20A2A0AA19E6C085007C3C7D /* LevelLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A2A0A919E6C085007C3C7D /* LevelLoader.swift */; };
+		20A2A0AC19E816B7007C3C7D /* LoadedLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A2A0AB19E816B7007C3C7D /* LoadedLevel.swift */; };
+		20DE2C9E19F3E2210071FE5C /* PunchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DE2C9D19F3E2210071FE5C /* PunchButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +95,11 @@
 		2018D2DA19E0828000F3B522 /* WorldButtonNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorldButtonNode.swift; sourceTree = "<group>"; };
 		2018D2F519E0836900F3B522 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Images.xcassets; sourceTree = "<group>"; };
 		2018D2FA19E08E0F00F3B522 /* ThrowSlot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThrowSlot.swift; sourceTree = "<group>"; };
+		201C3BE919F31AE400945234 /* ZLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZLayer.swift; sourceTree = "<group>"; };
+		204D955419F2D5A20014FA3F /* Goal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
+		20A2A0A919E6C085007C3C7D /* LevelLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelLoader.swift; sourceTree = "<group>"; };
+		20A2A0AB19E816B7007C3C7D /* LoadedLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadedLevel.swift; sourceTree = "<group>"; };
+		20DE2C9D19F3E2210071FE5C /* PunchButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PunchButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,9 +149,12 @@
 				2018D2F819E0879C00F3B522 /* Buttons */,
 				2018D2CA19E0828000F3B522 /* Contact.swift */,
 				2018D2CB19E0828000F3B522 /* ContactCategory.swift */,
+				201C3BE919F31AE400945234 /* ZLayer.swift */,
 				2018D2CC19E0828000F3B522 /* ContactRecord.swift */,
 				2018D2D219E0828000F3B522 /* Level.swift */,
+				20A2A0A919E6C085007C3C7D /* LevelLoader.swift */,
 				2018D2D319E0828000F3B522 /* Level1.swift */,
+				20A2A0AB19E816B7007C3C7D /* LoadedLevel.swift */,
 				2018D2D419E0828000F3B522 /* MainCharacter.swift */,
 				2018D2D519E0828000F3B522 /* MainCharacterNode.swift */,
 				2018D2D919E0828000F3B522 /* ViewManager.swift */,
@@ -201,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				2018D2DA19E0828000F3B522 /* WorldButtonNode.swift */,
+				204D955419F2D5A20014FA3F /* Goal.swift */,
 				2018D2CD19E0828000F3B522 /* ContainerButtonNode.swift */,
 				2018D2F919E087B800F3B522 /* Guts */,
 				2018D2F719E0876B00F3B522 /* ButtonContainerStates */,
@@ -221,6 +235,7 @@
 				2018D2D119E0828000F3B522 /* LeftButton.swift */,
 				2018D2D619E0828000F3B522 /* RightButton.swift */,
 				2018D2D019E0828000F3B522 /* JumpButton.swift */,
+				20DE2C9D19F3E2210071FE5C /* PunchButton.swift */,
 			);
 			name = Guts;
 			sourceTree = "<group>";
@@ -274,6 +289,7 @@
 				TargetAttributes = {
 					2018D29419E081E300F3B522 = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = NTMH5242T5;
 					};
 					2018D2AD19E081E300F3B522 = {
 						CreatedOnToolsVersion = 6.0;
@@ -338,16 +354,21 @@
 				2018D2F419E0828000F3B522 /* WorldButtonNode.swift in Sources */,
 				2018D2E119E0828000F3B522 /* ButtonGuts.swift in Sources */,
 				2018D2F119E0828000F3B522 /* ThrowButtonContainerState.swift in Sources */,
+				201C3BEA19F31AE400945234 /* ZLayer.swift in Sources */,
+				204D955519F2D5A20014FA3F /* Goal.swift in Sources */,
 				2018D2DE19E0828000F3B522 /* ButtonBuilder.swift in Sources */,
 				2018D2E719E0828000F3B522 /* ContainerButtonNode.swift in Sources */,
 				2018D2EB19E0828000F3B522 /* LeftButton.swift in Sources */,
+				20DE2C9E19F3E2210071FE5C /* PunchButton.swift in Sources */,
 				2018D29B19E081E300F3B522 /* AppDelegate.swift in Sources */,
 				2018D2E319E0828000F3B522 /* ButtonSlot.swift in Sources */,
 				2018D2F019E0828000F3B522 /* RightButton.swift in Sources */,
+				20A2A0AA19E6C085007C3C7D /* LevelLoader.swift in Sources */,
 				2018D2E419E0828000F3B522 /* Contact.swift in Sources */,
 				2018D2EE19E0828000F3B522 /* MainCharacter.swift in Sources */,
 				2018D2EC19E0828000F3B522 /* Level.swift in Sources */,
 				2018D2DD19E0828000F3B522 /* Button.swift in Sources */,
+				20A2A0AC19E816B7007C3C7D /* LoadedLevel.swift in Sources */,
 				2018D2DF19E0828000F3B522 /* ButtonContainer.swift in Sources */,
 				2018D2F219E0828000F3B522 /* Thrower.swift in Sources */,
 				2018D2E019E0828000F3B522 /* ButtonContainerState.swift in Sources */,
@@ -563,6 +584,7 @@
 				2018D2BA19E081E300F3B522 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2018D2BB19E081E300F3B522 /* Build configuration list for PBXNativeTarget "KnapsackTests" */ = {
 			isa = XCConfigurationList;
@@ -571,6 +593,7 @@
 				2018D2BD19E081E300F3B522 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

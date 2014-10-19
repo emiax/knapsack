@@ -42,6 +42,7 @@ class RightButton : ButtonGuts {
             return c;
         } else {
             let c = SKSpriteNode(imageNamed: "RightButton");
+            c.setScale(0.8)            
             worldNodeContents = c;
             return c;
         }

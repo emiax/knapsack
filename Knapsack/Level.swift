@@ -27,6 +27,7 @@ func createWallShape(path: CGMutablePath) -> SKShapeNode {
     var p = SKPhysicsBody(edgeLoopFromPath: path)
     
     s.fillColor = UIColor(red: 0.0, green: 0.6, blue: 0.0, alpha: 1.0)
+    s.lineWidth = 0
     
     p.categoryBitMask = ContactCategory.World.toRaw()
     p.contactTestBitMask = ContactCategory.World.toRaw()
@@ -38,6 +39,25 @@ func createWallShape(path: CGMutablePath) -> SKShapeNode {
     return s
 }
 
+
+func createDangerShape(path: CGMutablePath) -> SKShapeNode {
+    var s = SKShapeNode(path: path)
+    var p = SKPhysicsBody(edgeLoopFromPath: path)
+    
+    s.fillColor = UIColor(red: 0.6, green: 0.0, blue: 0.0, alpha: 1.0)
+    s.lineWidth = 0
+    
+    p.categoryBitMask = ContactCategory.Danger.toRaw()
+    p.contactTestBitMask = ContactCategory.Danger.toRaw()
+    p.friction = 0.1
+    p.dynamic = false
+    s.position = CGPoint(x: 0,y: 0);
+    s.physicsBody = p
+    
+    return s
+}
+
+
 func createPathFromPoints(shapePoints: [CGPoint]) -> CGMutablePath {
     var path = CGPathCreateMutable();
 
@@ -47,6 +67,54 @@ func createPathFromPoints(shapePoints: [CGPoint]) -> CGMutablePath {
     }
     CGPathCloseSubpath(path)
     return path
+}
+
+
+func getJSON(urlToRequest: String) -> NSData{
+    return NSData(contentsOfURL: NSURL(string: urlToRequest))
+}
+
+func parseJSON(inputData: NSData) -> NSDictionary{
+    var error: NSError?
+    var dict: NSDictionary = NSJSONSerialization.JSONObjectWithData(inputData, options: NSJSONReadingOptions.MutableContainers, error: &error) as NSDictionary
+    
+    return dict
+}
+
+
+func importFromWeb(world: SKNode, url: String) {
+    let json = getJSON(url)
+    let data = parseJSON(json)
+    
+    if let buttons = data["buttons"] as? NSArray {
+        for button in buttons {
+            
+        }
+    }
+    
+    if let solids = data["solids"] as? NSArray {
+        for solid in solids {
+            var points: [CGPoint] = []
+            if let pointData:NSArray = solid as? NSArray {
+                for data in pointData {
+                    if let d = data as? Dictionary<String, AnyObject> {
+                        if let xData = d["x"] as? NSNumber {
+                            if let yData = d["y"] as? NSNumber {
+                                let point = CGPoint(x: CGFloat(xData), y: CGFloat(yData))
+                                points.append(point);
+                            }
+                        }
+                    }
+                }
+            }
+            if (points.count > 0) {
+                let path = createPathFromPoints(points)
+                let shapeNode = createWallShape(path)
+                world.addChild(shapeNode)
+            }
+        }
+    }
+
 }
 
 

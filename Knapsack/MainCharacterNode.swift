@@ -25,10 +25,13 @@ class MainCharacterNode : SKNode {
         self.thrower = thrower
         let hc = SKShapeNode(circleOfRadius: 50)
         hitCircle = hc
-
+        hitCircle.hidden = true
+        hc.zPosition = ZLayer.MainCharacterHitCircle.toRaw()
+        
+        
         super.init()
         self.userInteractionEnabled = true
-        self.zPosition = 1
+        self.zPosition = ZLayer.MainCharacter.toRaw()
         
 //       rect.fillColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
 //       rect.userInteractionEnabled = true
@@ -84,7 +87,8 @@ class MainCharacterNode : SKNode {
 
         let node = SKShapeNode(path: path)
         node.lineWidth = lineWidth
-        node.fillColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        node.fillColor = UIColor(red: 1, green: 0.69, blue: 0.0, alpha: 1.0)
+        node.strokeColor = UIColor(red: 1, green: 0.69, blue: 0.0, alpha: 1.0)
         addChild(node)
         shapeNode = node
     }

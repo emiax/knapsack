@@ -8,12 +8,13 @@
 
 import SpriteKit
 
-class MainCharacter {
+class MainCharacter : ContactRecord {
     
-    private var contacts: [Contact] = []
+    private var contacts: [SKPhysicsContact] = []
     
     required init () {
         offsetFollowingNode = CGVector(dx: 0, dy: 0)
+        elastic = CGVector(dx: 0.0, dy: 0.0)
     }
     
     let nPerimeterNodes = 12
@@ -23,6 +24,9 @@ class MainCharacter {
     
     let frequency:CGFloat = 7
     let damping:CGFloat = 10
+    private var jumpTimer : Int = 0
+    
+    var spawnOffset = CGPoint(x: 0, y: 0)
     
     private var attachedNodes = false;
     private var centerNode:SKNode?
@@ -34,6 +38,8 @@ class MainCharacter {
     private var offsetFollowingNode:CGVector
     private var touch : UITouch?
     
+    private var throwPreview : SKNode?
+    private var elastic : CGVector
     
     func angleOfNode(i:Int) -> CGFloat {
         return CGFloat(i)/CGFloat(nPerimeterNodes) * 2.0 * PI;
@@ -51,11 +57,35 @@ class MainCharacter {
         return centerNode?.position
     }
     
+    func setPosition(position: CGPoint) {
+        if let oldPos = getPosition() {
+            let xDiff = position.x - oldPos.x;
+            let yDiff = position.y - oldPos.y;
+            centerNode?.position.x += xDiff;
+            centerNode?.position.y += yDiff;
+            
+            for node in perimeterNodes {
+                node.position.x += xDiff;
+                node.position.y += yDiff;
+            }
+        } else {
+            spawnOffset = position
+        }
+    }
+    
+    func getVelocity() -> CGVector? {
+        return centerNode?.physicsBody?.velocity
+    }
+    
     func setElastic(elasticOffset: CGVector?) {
         if let eo = elasticOffset {
+            self.elastic = eo
             offsetFollowingNode = CGVector(dx: eo.dx/3, dy: eo.dy/3 + 50)
+            updateThrowPreview()
         } else {
+            self.elastic = CGVector(dx: 0, dy: 0)
             offsetFollowingNode = CGVector(dx: 0, dy: 0)
+            removeThrowPreview()
         }
     }
     
@@ -74,7 +104,7 @@ class MainCharacter {
         parent.addChild(cn)
         
         cnp.categoryBitMask = ContactCategory.MainCharacter.toRaw()
-        cnp.contactTestBitMask = ContactCategory.World.toRaw()
+        cnp.contactTestBitMask = ContactCategory.World.toRaw() | ContactCategory.Danger.toRaw()
         cnp.collisionBitMask = ContactCategory.World.toRaw()
         cnp.affectedByGravity = false
         
@@ -89,7 +119,7 @@ class MainCharacter {
             s.physicsBody = p
             
             p.categoryBitMask = ContactCategory.MainCharacter.toRaw()
-            p.contactTestBitMask = ContactCategory.World.toRaw()
+            p.contactTestBitMask = ContactCategory.World.toRaw() | ContactCategory.Danger.toRaw()
             p.collisionBitMask = ContactCategory.World.toRaw()
             p.friction = 200
             p.allowsRotation = false
@@ -162,6 +192,8 @@ class MainCharacter {
         centerNode = cn
         followingNode = fn
         attachedNodes = true
+        
+        setPosition(spawnOffset)
     }
     
     func updateFollowingNode () {
@@ -171,6 +203,47 @@ class MainCharacter {
                 fn.position.x += offsetFollowingNode.dx
                 fn.position.y += offsetFollowingNode.dy
             }
+        }
+    }
+    
+    func updateThrowPreview() {
+        if let p = throwPreview {
+            p.removeFromParent()
+        }
+        
+        if let parent = self.parent {
+
+            var path = CGPathCreateMutable();
+           
+            if var currentPoint = getPosition() {
+                CGPathMoveToPoint (path, nil, currentPoint.x, currentPoint.y)
+                var trajectory = CGVector(dx: elastic.dx/100, dy: elastic.dy/100)
+                for (var k = 1; k < 500; k++) {
+                    currentPoint.x += trajectory.dx
+                    currentPoint.y += trajectory.dy
+                    
+                    trajectory.dy -= 0.015;
+                    if (k % 10 < 3) {
+                        CGPathMoveToPoint (path, nil, currentPoint.x, currentPoint.y)
+                    } else {
+                        CGPathAddLineToPoint (path, nil, currentPoint.x, currentPoint.y);
+                    }
+                }
+                
+            
+
+            }
+            let preview = SKShapeNode(path: path)
+            
+            parent.addChild(preview)
+            throwPreview = preview
+        }
+        
+    }
+    
+    func removeThrowPreview() {
+        if let p = throwPreview {
+            p.removeFromParent()
         }
     }
     
@@ -225,43 +298,97 @@ class MainCharacter {
 
     
     func jump() {
-        for node in perimeterNodes {
-            if let c = centerNode {
-                node.physicsBody!.applyForce(CGVector(dx: 0, dy: 200))
+        if (isOnGround()) {
+            if (jumpTimer < 0) {
+                for node in perimeterNodes {
+                    if let c = centerNode {
+                        node.physicsBody!.applyForce(CGVector(dx: 0, dy: 250))
+                    }
+                }
+                jumpTimer = 20
             }
+        } else {
+            jumpTimer = 0
         }
+    }
+    
+    func punch() {
+        println("punching!")
     }
     
     func throwButton(buttonNode : WorldButtonNode, elasticOffset: CGVector) -> Bool {
         if let p = getPosition() {
             buttonNode.removeFromParent()
             parent?.addChild(buttonNode)
-            buttonNode.position = CGPoint(x: p.x + elasticOffset.dx, y: p.y + elasticOffset.dy)
-//            buttonNode.physicsBody?.velocity = velocity
+            buttonNode.makeTemporarilyUnpickable();
+            buttonNode.position = CGPoint(x: p.x, y: p.y)
+            if let v = getVelocity() {
+                buttonNode.physicsBody?.velocity = v
+            }
+            buttonNode.physicsBody?.applyImpulse(CGVector(dx: elasticOffset.dx/3, dy: elasticOffset.dy/3))
+            self.applyImpulse(CGVector(dx: -elasticOffset.dx/5, dy: -elasticOffset.dy/5))
             return true
         }
         return false
+    }
+    
+
+    
+    func applyImpulse(vector: CGVector) {
+        let nNodes:CGFloat = 1 + CGFloat(perimeterNodes.count)
+        let composant = CGVector(dx: vector.dx/nNodes, dy: vector.dy/nNodes)
+        
+        centerNode?.physicsBody?.applyImpulse(composant)
+        for n in perimeterNodes {
+            n.physicsBody?.applyImpulse(composant)
+        }
+        
     }
     
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func isOnGround() -> Bool {
-        println("Is on ground?")
-        
-        for c in contacts {
-            if (c.contactPoint.y < -10) {
-                println("point: \(c.contactPoint)")
-                return true
+    func addContact(contact: SKPhysicsContact) {
+        removeContact(contact)
+        contacts.append(contact)
+    }
+    
+    func removeContact(contact: SKPhysicsContact) {
+        for (var i = 0; i < contacts.count; i++) {
+            let c = contacts[i]
+            if ((contact.bodyA === c.bodyA && contact.bodyB === c.bodyB)
+                || (contact.bodyA === c.bodyB && contact.bodyB === c.bodyA)) {
+                contacts.removeAtIndex(i);
+                i--;
             }
         }
+    }
+    
+    func isOnGround() -> Bool {
+        println("Is on ground?")
+
+        if let y = getPosition()?.y {
+//            println("mainCharPos")
+//            println(y)
+            for c in contacts {
+//                println("contact pos")
+//                println(c.contactPoint.y)
+//                println("\(c.contactNormal.dx) , \(c.contactNormal.dy)")
+                if (c.contactNormal.dy > 0.3) {
+                    println("TRUE")
+                    return true
+                }
+            }
+        }
+        println("FALSE")
         return false
     }
 
     func update() {
         updateFollowingNode()
         updateVisibleNode()
+        jumpTimer--;
     }
 
 }

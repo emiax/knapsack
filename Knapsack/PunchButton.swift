@@ -1,14 +1,14 @@
 //
-//  LeftButton.swift
-//  Game1
+//  PunchButton.swift
+//  Knapsack
 //
-//  Created by Emil Axelsson on 18/09/14.
+//  Created by Emil Axelsson on 19/10/14.
 //  Copyright (c) 2014 Emil Axelsson. All rights reserved.
 //
 
 import SpriteKit
 
-class JumpButton : ButtonGuts {
+class PunchButton : ButtonGuts {
     
     private var worldNodeContents : SKNode?
     private var containerNodeContents : SKNode?
@@ -19,14 +19,14 @@ class JumpButton : ButtonGuts {
     }
     
     func onPressed() {
-   
+        
     }
     
     func onReleased() {
     }
     
     func onPressedTick(currentTime: CFTimeInterval) {
-        mainCharacter.jump()
+        mainCharacter.punch()
     }
     
     func onReleasedTick(currentTime: CFTimeInterval) {
@@ -36,7 +36,7 @@ class JumpButton : ButtonGuts {
         if let c = worldNodeContents {
             return c;
         } else {
-            let c = SKSpriteNode(imageNamed: "JumpButton");
+            let c = SKSpriteNode(imageNamed: "PunchButton");
             c.setScale(0.8)
             worldNodeContents = c;
             return c;
@@ -47,7 +47,7 @@ class JumpButton : ButtonGuts {
         if let c = containerNodeContents {
             return c;
         } else {
-            let c = SKSpriteNode(imageNamed: "JumpButton");
+            let c = SKSpriteNode(imageNamed: "PunchButton");
             containerNodeContents = c;
             return c;
         }

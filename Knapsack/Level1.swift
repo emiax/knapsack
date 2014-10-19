@@ -28,7 +28,7 @@ class Level1 : Level{
     override func createWorld() -> SKNode {
         var world = SKNode()
         
-        let points = [
+       /* let points = [
             CGPoint(x: 1000, y: -100),
             CGPoint(x: 1000, y: -50),
             CGPoint(x: 800, y: -60),
@@ -40,7 +40,9 @@ class Level1 : Level{
             ]
         
         let path = createPathFromPoints(points)
-        world.addChild(createWallShape(path))
+        world.addChild(createWallShape(path))*/
+        
+        importFromWeb(world, "http://emilaxelsson.se/knapsack/level1.json")
         
         var b = buttonBuilder.buildButton(RightButton(mainCharacter: getMainCharacter()))
         

@@ -40,6 +40,7 @@ class LeftButton : ButtonGuts {
             return c;
         } else {
             let c = SKSpriteNode(imageNamed: "LeftButton");
+            c.setScale(0.8)
             worldNodeContents = c;
             return c;
         }
